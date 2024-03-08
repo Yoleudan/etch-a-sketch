@@ -1,6 +1,13 @@
 const grid = document.querySelector('#grid');
 
-let dimensions = prompt("Select a size for the grid between 1-100")
+let dimensions = 16
+
+const size = document.querySelector('#size')
+size.addEventListener('click', function(){
+    dimensions = prompt("Please choose you desired dimensions between 1 and 100!")
+    deleteGrid();
+    makeGrid();
+})
 
 function getSquareWidth(){
     let width = 500 / dimensions
@@ -24,6 +31,10 @@ function makeGrid(){
     for (let i = 1; i <= (dimensions*dimensions); i++ ){
         makeSquare();
     }
+}
+
+function deleteGrid(){
+    grid.innerHTML = '';
 }
 
 
