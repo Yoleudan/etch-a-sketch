@@ -28,6 +28,11 @@ rainbow.addEventListener('click', function(){
     return randomCol = true;
 })
 
+const grey = document.querySelector('#grey')
+grey.addEventListener('click', function(){
+    return randomCol = false;
+})
+
 function getSquareWidth(){
     let width = 500 / dimensions
     return width + "px";
@@ -45,7 +50,7 @@ function  makeSquare(){
             square.style.backgroundColor = colorGen();
         }
         else{
-            square.style.backgroundColor = drawingColor}})
+            square.style.backgroundColor = 'black'}})
     grid.appendChild(square);
 }
 
