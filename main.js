@@ -22,11 +22,10 @@ function colorGen(){
     const b = Math.floor(Math.random()*256)
     return drawingColor = ('rgb(' + r + "," + g + "," + b + ")")
 }
-
+randomCol = false
 const rainbow = document.querySelector('#rainbow')
 rainbow.addEventListener('click', function(){
-    colorGen();
-    console.log(drawingColor)
+    return randomCol = true;
 })
 
 function getSquareWidth(){
@@ -42,7 +41,11 @@ function  makeSquare(){
     square.style.minHeight = getSquareWidth();
     square.style.minWidth = getSquareWidth();
     square.addEventListener('mouseover', function(){
-        square.style.backgroundColor = drawingColor})
+        if(randomCol === true){
+            square.style.backgroundColor = colorGen();
+        }
+        else{
+            square.style.backgroundColor = drawingColor}})
     grid.appendChild(square);
 }
 
