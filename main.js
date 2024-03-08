@@ -5,8 +5,28 @@ let dimensions = 16
 const size = document.querySelector('#size')
 size.addEventListener('click', function(){
     dimensions = prompt("Please choose you desired dimensions between 1 and 100!")
-    deleteGrid();
-    makeGrid();
+    if(dimensions > 100|| dimensions < 1){
+        alert("Please choose a number between 1-100")
+    }
+    else{
+        deleteGrid();
+        makeGrid();
+    }
+})
+
+let drawingColor = 'black'
+
+function colorGen(){
+    const r = Math.floor(Math.random()*256)
+    const g = Math.floor(Math.random()*256)
+    const b = Math.floor(Math.random()*256)
+    return drawingColor = ('rgb(' + r + "," + g + "," + b + ")")
+}
+
+const rainbow = document.querySelector('#rainbow')
+rainbow.addEventListener('click', function(){
+    colorGen();
+    console.log(drawingColor)
 })
 
 function getSquareWidth(){
@@ -22,7 +42,7 @@ function  makeSquare(){
     square.style.minHeight = getSquareWidth();
     square.style.minWidth = getSquareWidth();
     square.addEventListener('mouseover', function(){
-        square.style.backgroundColor = "black"})
+        square.style.backgroundColor = drawingColor})
     grid.appendChild(square);
 }
 
